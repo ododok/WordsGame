@@ -27,7 +27,7 @@ int main(int argc, char *argv[]) {
     }
 
     int count = 0;
-    card t; //temporaire
+    card t; //temporaire, buffer
 
 
     //printf("count1=%d\n",count);
