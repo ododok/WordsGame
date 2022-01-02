@@ -22,7 +22,7 @@ int main(int argc, char *argv[]) {
     FILE* fp = fopen(fichier, "r");
     if(fp==NULL) {
         printf("Manque de fichier. Il faut mettre le logiciel et le fichier dans le même dossier.\n"
-               "Et pour le nom du fichier il faut respecter les majuscules et les minuscules.\n");
+               "Et quand vous entrez le nom du fichier il faut respecter les majuscules et les minuscules.\n");
         scanf(buf);
     }
 
