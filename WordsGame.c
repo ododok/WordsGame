@@ -30,7 +30,7 @@ int main(int argc, char *argv[]) {
     card t; //temporaire, buffer
 
 
-    //printf("count1=%d\n",count);
+
     while(!feof(fp)){
         fgets(t.w1, max, fp);
         fgets(t.w2, max, fp);
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
         if(t.w1[0]=='\n')break; //마지막에 무의미한 엔터키가 있을 경우 그냥 중단.
         count++;
     }
-    //printf("count2=%d\n",count);
+
 
 
     rewind(fp); //파일포인터를 썼으면 되감기 필수. ㅜㅜ
@@ -80,20 +80,30 @@ int main(int argc, char *argv[]) {
         printf("1:%s2:%s\n",sc[i].w1, sc[i].w2);
     }
 */
-    printf("-------------------------------------------\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),10);
+    printf("\n-------------------------------------------\n");
     printf("|          W O R D S     G A M E           |\n");
     printf("-------------------------------------------\n");
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
     printf(" Il y a %d questions.\n",count);
+
 
     //study
     for(int i=0; i<count; i++){
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),10);
         printf("\n\n-------n.%d---------------------------------\n",i+1);
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
         printf("▷  %s\n   ",sc[i].w1);
         scanf(buf);
         fflush(stdin);
         printf("▶  %s\n",sc[i].w2);
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),10);
         printf("-------------------------------------------\n\n\n");
-        if(i==count-1)printf("\nla fin  끝\n");
+        if(i==count-1){
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),10);
+            printf("\nla fin  끝\n");
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),15);
+        }
         fflush(stdin);
     }
 
