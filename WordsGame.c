@@ -62,7 +62,7 @@ int main(int argc, char *argv[]) {
     }
 */
 
-    //카드섞기
+    // shuffle the cards
     srand(time(NULL));
     int idx1, idx2;
     for(int i=0; i<count; i++){
