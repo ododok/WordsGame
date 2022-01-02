@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <signal.h>
-#include <Windows.h> //Windows.h를 include한다. c언어와 c++의 경우.
+#include <Windows.h> 
 #define max 200
 typedef struct card{
     char w1[max];
@@ -53,7 +53,7 @@ int main(int argc, char *argv[]) {
     }
 */
 
-    //카드섞기
+    //카드섞기 mix the cards
     int idx1, idx2;
     for(int i=0; i<count; i++){
         idx1=rand()%count;
@@ -76,6 +76,7 @@ int main(int argc, char *argv[]) {
     printf("--> Il y a %d questions \n",count);
 
     //study
+    srand(time(NULL));
     for(int i=0; i<count; i++){
         printf("\n\n-------n.%d---------------------------------\n",i+1);
         printf("  %s\n",sc[i].w1);
