@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <signal.h>
-#include <Windows.h> 
+#include <Windows.h>
+#include <time.h>
+
 #define max 200
 typedef struct card{
     char w1[max];
@@ -11,9 +13,16 @@ int main(int argc, char *argv[]) {
     SetConsoleOutputCP(65001);
     char tstr[2], buf[max];
 
-    FILE* fp = fopen("words.txt", "r");
+    char fichier[100];
+    printf("Mettez le nom de fichier, par exemple, si le fichier s'appelle \"words.txt\", mettez juste \"words\".\n ▷  ");
+    scanf("%s",&fichier);
+    fflush(stdin);
+    strcat(fichier,".txt");
+
+    FILE* fp = fopen(fichier, "r");
     if(fp==NULL) {
-        printf("Manque de fichier. Il faut \"words.txt\"\n");
+        printf("Manque de fichier. Il faut mettre le logiciel et le fichier dans le même dossier.\n"
+               "Et pour le nom du fichier il faut respecter les majuscules et les minuscules.\n");
         scanf(buf);
     }
 
@@ -53,7 +62,8 @@ int main(int argc, char *argv[]) {
     }
 */
 
-    //카드섞기 mix the cards
+    //카드섞기
+    srand(time(NULL));
     int idx1, idx2;
     for(int i=0; i<count; i++){
         idx1=rand()%count;
@@ -73,16 +83,15 @@ int main(int argc, char *argv[]) {
     printf("-------------------------------------------\n");
     printf("|          W O R D S     G A M E           |\n");
     printf("-------------------------------------------\n");
-    printf("--> Il y a %d questions \n",count);
+    printf(" Il y a %d questions.\n",count);
 
     //study
-    srand(time(NULL));
     for(int i=0; i<count; i++){
         printf("\n\n-------n.%d---------------------------------\n",i+1);
-        printf("  %s\n",sc[i].w1);
+        printf("▷  %s\n   ",sc[i].w1);
         scanf(buf);
         fflush(stdin);
-        printf("  %s\n",sc[i].w2);
+        printf("▶  %s\n",sc[i].w2);
         printf("-------------------------------------------\n\n\n");
         if(i==count-1)printf("\nla fin  끝\n");
         fflush(stdin);
