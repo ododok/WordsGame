@@ -13,21 +13,24 @@ int main(int argc, char *argv[]) {
     SetConsoleOutputCP(65001);
     char tstr[2], buf[max];
     int n=1;
-
+    FILE *fp;
     char fichier[100];
     while(n) {
-        printf("Mettez le nom de fichier, par exemple, si le fichier s'appelle \"words.txt\", mettez juste \"words\".\n ▷  ");
-        scanf("%s", &fichier);
-        fflush(stdin);
-        strcat(fichier, ".txt");
+        while (1) {
+            printf("Mettez le nom de fichier, par exemple, si le fichier s'appelle \"words.txt\", mettez juste \"words\".\n ▷  ");
+            scanf("%s", &fichier);
+            fflush(stdin);
+            strcat(fichier, ".txt");
 
-        FILE *fp = fopen(fichier, "r");
-        if (fp == NULL) {
-            printf("Manque de fichier. Il faut mettre le logiciel et le fichier dans le même dossier.\n"
-                   "Et quand vous entrez le nom du fichier il faut respecter les majuscules et les minuscules.\n");
-            scanf(buf);
+            fp = fopen(fichier, "r");
+            if (fp == NULL) {
+                printf("Manque de fichier. Il faut mettre le logiciel et le fichier dans le même dossier.\n"
+                       "Et quand vous entrez le nom du fichier il faut respecter les majuscules et les minuscules.\n");
+                scanf(buf);
+            } else{
+                break;
+            }
         }
-
         int count = 0;
         card t; //temporaire, buffer
 
